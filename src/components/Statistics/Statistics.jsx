@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types';
 import { Item } from './Statistics.styled';
 
-export function Statistics({ statistis, total, positivePercentage }) {
+export function Statistics({ good, neutral, bad, total, positivePercentage }) {
   return (
     <ul>
-      {Object.keys(statistis).map(stat => (
-        <Item key={stat}>
-          {stat}: {statistis[stat]}
-        </Item>
-      ))}
-      <li>Total: {total}</li>
-      <li>Positive feedback: {positivePercentage}%</li>
+      <Item>good: {good}</Item>
+      <Item>neutral: {neutral}</Item>
+      <Item>bad: {bad}</Item>
+      <Item>total: {total}</Item>
+      <Item>positive feedback: {positivePercentage}%</Item>
     </ul>
   );
 }
 
 Statistics.propTypes = {
-  statistis: PropTypes.object,
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
   total: PropTypes.number,
   positivePercentage: PropTypes.number,
 };
